@@ -26,10 +26,10 @@ import { cn } from "@/lib/utils";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Góc Thư Viện 11A5 — Mãi mãi tuổi hai mươi & tủ sách thời chiến" },
+      { title: "Góc Thư Viện 11A5:Mãi mãi tuổi hai mươi & tủ sách thời chiến" },
       { name: "description", content: "Góc Thư Viện 11A5: đọc thử Mãi mãi tuổi hai mươi, khám phá 23 cuốn sách về tuổi trẻ và chiến tranh với hiệu ứng 3D." },
       { property: "og:title", content: "Góc Thư Viện 11A5" },
-      { property: "og:description", content: "Đọc thử Mãi mãi tuổi hai mươi và khám phá tủ sách thời chiến của lớp 11A5." },
+      { property: "og:description", content: "Đọc thử Mãi mãi tuổi hai mươi và khám phá tủ sách của lớp 11A5." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
