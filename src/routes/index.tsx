@@ -3,7 +3,7 @@ import { useMemo, useState } from "react";
 import { ArrowDown, ArrowUpRight, BookOpen, Library, Search, Sparkles } from "lucide-react";
 
 import coverAsset from "@/assets/mai-mai-tuoi-20-cover.jpg.asset.json";
-import editorialAsset from "@/assets/mai-mai-tuoi-20-editorial.jpg.asset.json";
+import storyPhoto from "@/assets/mai-mai-tuoi-20-photo.jpg.asset.json";
 import libraryBg from "@/assets/library-bg.jpg";
 import p1 from "@/assets/pages/trang-1.png.asset.json";
 import p2 from "@/assets/pages/trang-2.png.asset.json";
@@ -188,7 +188,7 @@ function Index() {
         <div className="relative mx-auto grid max-w-7xl items-center gap-14 px-6 py-24 lg:grid-cols-2">
           <div className="reveal group relative" style={{ perspective: "1400px" }}>
             <div className="relative overflow-hidden rounded-sm shadow-book transition duration-700 [transform:rotateY(8deg)_rotateX(3deg)] group-hover:[transform:rotateY(0)_rotateX(0)]">
-              <img src={editorialAsset.url} alt="Cuốn sách Mãi mãi tuổi hai mươi bên bàn gỗ" loading="lazy" className="aspect-[3/2] w-full object-cover transition duration-1000 group-hover:scale-105" />
+              <img src={storyPhoto.url} alt="Ảnh chụp cuốn Mãi mãi tuổi hai mươi ấn bản NXB Kim Đồng trên kệ gỗ" loading="lazy" className="aspect-[3/2] w-full object-cover transition duration-1000 group-hover:scale-105" />
               <div className="absolute inset-0 bg-gradient-to-t from-night/70 to-transparent" />
               <p className="eyebrow absolute bottom-5 left-5 text-gold">Ấn bản mới · Nhà xuất bản Kim Đồng</p>
             </div>
