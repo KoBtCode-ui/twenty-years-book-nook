@@ -2,16 +2,16 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
 import { ArrowDown, ArrowUpRight, BookOpen, Library, Search, Sparkles } from "lucide-react";
 
-import coverAsset from "@/assets/mai-mai-tuoi-20-cover.jpg.asset.json";
-import storyPhoto from "@/assets/mai-mai-tuoi-20-photo.jpg.asset.json";
+import coverAsset from "@/assets/mai-mai-tuoi-20-cover.jpg";
+import storyPhoto from "@/assets/mai-mai-tuoi-20-photo.jpg";
 import libraryBg from "@/assets/library-bg.jpg";
-import p1 from "@/assets/pages/trang-1.png.asset.json";
-import p2 from "@/assets/pages/trang-2.png.asset.json";
-import p3 from "@/assets/pages/trang-3.png.asset.json";
-import p4 from "@/assets/pages/trang-4.png.asset.json";
-import p5 from "@/assets/pages/trang-5.png.asset.json";
-import p6 from "@/assets/pages/trang-6.png.asset.json";
-import p7 from "@/assets/pages/trang-7.png.asset.json";
+import p1 from "@/assets/pages/trang-1.jpg";
+import p2 from "@/assets/pages/trang-2.jpg";
+import p3 from "@/assets/pages/trang-3.jpg";
+import p4 from "@/assets/pages/trang-4.jpg";
+import p5 from "@/assets/pages/trang-5.jpg";
+import p6 from "@/assets/pages/trang-6.jpg";
+import p7 from "@/assets/pages/trang-7.jpg";
 
 import { Book3D } from "@/components/library/Book3D";
 import { BookCover } from "@/components/library/BookCover";
@@ -53,10 +53,10 @@ function Index() {
 
   const pages: FlipPage[] = useMemo(
     () => [
-      { key: "cover", content: <PageImg src={coverAsset.url} alt="Bìa sách Mãi mãi tuổi hai mươi" /> },
-      { key: "t1", content: <PageImg src={p1.url} alt="Trang tên sách" /> },
-      { key: "t2", content: <PageImg src={p2.url} alt="Chân dung liệt sĩ Nguyễn Văn Thạc" /> },
-      { key: "t3", content: <PageImg src={p3.url} alt="Trang bìa lót" /> },
+      { key: "cover", content: <PageImg src={coverAsset} alt="Bìa sách Mãi mãi tuổi hai mươi" /> },
+      { key: "t1", content: <PageImg src={p1} alt="Trang tên sách" /> },
+      { key: "t2", content: <PageImg src={p2} alt="Chân dung liệt sĩ Nguyễn Văn Thạc" /> },
+      { key: "t3", content: <PageImg src={p3} alt="Trang bìa lót" /> },
       {
         key: "stamp",
         content: (
@@ -69,10 +69,10 @@ function Index() {
           </div>
         ),
       },
-      { key: "t4", content: <PageImg src={p4.url} alt="Lời nói đầu" /> },
-      { key: "t5", content: <PageImg src={p5.url} alt="Trang 6" /> },
-      { key: "t6", content: <PageImg src={p6.url} alt="Trang 7" /> },
-      { key: "t7", content: <PageImg src={p7.url} alt="Trang 8" /> },
+      { key: "t4", content: <PageImg src={p4} alt="Lời nói đầu" /> },
+      { key: "t5", content: <PageImg src={p5} alt="Trang 6" /> },
+      { key: "t6", content: <PageImg src={p6} alt="Trang 7" /> },
+      { key: "t7", content: <PageImg src={p7} alt="Trang 8" /> },
       {
         key: "end",
         content: (
@@ -152,7 +152,7 @@ function Index() {
             <div className="pointer-events-none absolute top-1/2 left-1/2 h-[420px] w-[420px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-gold/25 blur-[90px]" />
             <div className="relative animate-float">
               <Book3D tone="forest" width={280} height={426} depth={42} rest={{ x: 4, y: -28 }} tilt={28} onClick={() => setReading(true)} label="Mở sách Mãi mãi tuổi hai mươi để đọc thử">
-                <img src={coverAsset.url} alt="Bìa sách Mãi mãi tuổi hai mươi" className="h-full w-full object-cover" draggable={false} />
+                <img src={coverAsset} alt="Bìa sách Mãi mãi tuổi hai mươi" className="h-full w-full object-cover" draggable={false} />
               </Book3D>
               <span className="pointer-events-none absolute -right-3 -bottom-3 flex h-14 w-14 items-center justify-center">
                 <span className="absolute inset-0 animate-pulse-ring rounded-full border-2 border-gold" />
@@ -188,7 +188,7 @@ function Index() {
         <div className="relative mx-auto grid max-w-7xl items-center gap-14 px-6 py-24 lg:grid-cols-2">
           <div className="reveal group relative" style={{ perspective: "1400px" }}>
             <div className="relative overflow-hidden rounded-sm shadow-book transition duration-700 [transform:rotateY(8deg)_rotateX(3deg)] group-hover:[transform:rotateY(0)_rotateX(0)]">
-              <img src={storyPhoto.url} alt="Ảnh chụp cuốn Mãi mãi tuổi hai mươi ấn bản NXB Kim Đồng trên kệ gỗ" loading="lazy" className="aspect-[3/2] w-full object-cover transition duration-1000 group-hover:scale-105" />
+              <img src={storyPhoto} alt="Ảnh chụp cuốn Mãi mãi tuổi hai mươi ấn bản NXB Kim Đồng trên kệ gỗ" loading="lazy" className="aspect-[3/2] w-full object-cover transition duration-1000 group-hover:scale-105" />
               <div className="absolute inset-0 bg-gradient-to-t from-night/70 to-transparent" />
               <p className="eyebrow absolute bottom-5 left-5 text-gold">Ấn bản mới · Nhà xuất bản Kim Đồng</p>
             </div>
