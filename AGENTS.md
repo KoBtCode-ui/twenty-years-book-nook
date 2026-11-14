@@ -28,3 +28,8 @@ use the editor.
   own key and store it in Secrets.
 - **Secrets.** Lovable manages them. Do not put secret values in the repo.
 <!-- LOVABLE:END -->
+
+## Project rules
+- Book catalogue lives in `src/lib/books.ts` (plain data + `filterBooks`); UI components under `src/components/library/` only render it — keeps content edits in one place.
+- 3D effects (book, flip book, ring) are pure CSS 3D + small rAF loops, no 3D/animation libraries — keeps the bundle light and SSR-safe.
+- Uploaded book-page photos and the real cover are CDN assets (`src/assets/**/*.asset.json`); generated cover art is imported from `src/assets/covers/`.
