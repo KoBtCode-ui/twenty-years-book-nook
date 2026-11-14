@@ -7,6 +7,10 @@ describe("Góc Thư Viện 11A5 book data", () => {
     expect(companions).toHaveLength(3);
   });
 
+  it("shows a real published cover for every shelf book except Bất khuất", () => {
+    expect(shelfBooks.filter((b) => !b.cover).map((b) => b.id)).toEqual(["bat-khuat"]);
+  });
+
   it("filters the shelf by genre and by title/author search", () => {
     expect(filterBooks(shelfBooks, "Thiếu nhi & lịch sử", "").every((b) => b.genre === "Thiếu nhi & lịch sử")).toBe(true);
     expect(filterBooks(shelfBooks, "Tất cả", "bảo ninh").map((b) => b.id)).toEqual(["noi-buon-chien-tranh"]);

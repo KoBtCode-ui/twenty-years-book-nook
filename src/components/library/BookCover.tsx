@@ -1,9 +1,17 @@
 import type { Book } from "@/lib/books";
 import { cn } from "@/lib/utils";
 
-/** Flat front cover for a generated-art book: painting + typeset title. */
+/** Flat front cover: the real published cover when available, otherwise painting + typeset title. */
 export function BookCover({ book, size = "md", className }: { book: Book; size?: "sm" | "md" | "lg"; className?: string }) {
   const title = size === "sm" ? "text-[0.95rem]" : size === "lg" ? "text-3xl" : "text-xl";
+  if (book.cover) {
+    return (
+      <div className={cn(`tone-${book.tone} relative h-full w-full overflow-hidden bg-[var(--tone-bg)]`, className)}>
+        <img src={book.cover} alt={`Bìa sách ${book.title}`} loading="lazy" className="absolute inset-0 h-full w-full object-cover" draggable={false} />
+        <div className="cover-real-sheen pointer-events-none absolute inset-0" />
+      </div>
+    );
+  }
   return (
     <div className={cn(`tone-${book.tone} relative h-full w-full overflow-hidden bg-[var(--tone-bg)]`, className)}>
       <img src={book.art} alt="" loading="lazy" width={768} height={1152} className="absolute inset-0 h-full w-full object-cover" draggable={false} />

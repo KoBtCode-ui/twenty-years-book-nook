@@ -198,6 +198,13 @@
     linear-gradient(90deg, oklch(0 0 0 / 0.35) 0%, oklch(1 0 0 / 0.12) 3%, transparent 7%);
 }
 
+/* Spine crease + soft light over a real printed cover. */
+.cover-real-sheen {
+  background:
+    linear-gradient(90deg, oklch(0 0 0 / 0.38) 0%, oklch(1 0 0 / 0.18) 2.5%, transparent 6%, transparent 92%, oklch(0 0 0 / 0.12) 100%),
+    linear-gradient(160deg, oklch(1 0 0 / 0.1) 0%, transparent 40%);
+}
+
 /* ---------- 3D book ---------- */
 .book3d {
   --w: 220px;

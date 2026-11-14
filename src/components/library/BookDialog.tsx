@@ -11,7 +11,7 @@ export function BookDialog({ book, onClose }: { book: Book | null; onClose: () =
         {book && (
           <div className={`tone-${book.tone} grid gap-0 sm:grid-cols-[1fr_1.1fr]`}>
             <div className="relative flex items-center justify-center overflow-hidden bg-[var(--tone-bg)] p-10">
-              <img src={book.art} alt="" className="absolute inset-0 h-full w-full scale-110 object-cover opacity-40 blur-xl" />
+              <img src={book.cover ?? book.art} alt="" className="absolute inset-0 h-full w-full scale-110 object-cover opacity-40 blur-xl" />
               <div className="relative animate-float">
                 <Book3D tone={book.tone} width={190} height={285} depth={30} rest={{ x: 4, y: -22 }}>
                   <BookCover book={book} />

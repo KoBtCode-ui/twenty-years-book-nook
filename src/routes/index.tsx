@@ -247,8 +247,8 @@ function Index() {
                   <img src={b.art} alt="" loading="lazy" width={768} height={1152} className="absolute inset-0 h-full w-full object-cover opacity-90 transition duration-1000 group-hover:scale-110 group-hover:opacity-60" />
                   <div className="absolute inset-0 bg-gradient-to-t from-[var(--tone-bg)] via-transparent to-transparent" />
                   <span className="font-display-tight absolute top-5 left-5 text-5xl text-[var(--tone-fg)]">0{i + 2}</span>
-                  <div className="absolute right-6 bottom-6 left-1/2 translate-y-6 opacity-0 transition duration-700 group-hover:translate-y-0 group-hover:opacity-100" style={{ perspective: "800px" }}>
-                    <div className="ml-auto aspect-[2/3] w-28 overflow-hidden rounded-r-sm shadow-book [transform:rotateY(-24deg)]">
+                  <div className={cn("absolute right-6 bottom-6 left-1/2 transition duration-700 group-hover:translate-y-0 group-hover:opacity-100", b.cover ? "opacity-100" : "translate-y-6 opacity-0")} style={{ perspective: "800px" }}>
+                    <div className={cn("ml-auto aspect-[2/3] overflow-hidden rounded-r-sm shadow-book transition duration-700 [transform:rotateY(-24deg)] group-hover:[transform:rotateY(-8deg)_scale(1.05)]", b.cover ? "w-36" : "w-28")}>
                       <BookCover book={b} size="sm" />
                     </div>
                   </div>
