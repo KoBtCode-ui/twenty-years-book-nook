@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
-import { ArrowDown, ArrowUpRight, BookOpen, Library, Search, Sparkles } from "lucide-react";
+import { ArrowDown, ArrowUpRight, BookOpen, Library, Search } from "lucide-react";
 
 import coverAsset from "@/assets/mai-mai-tuoi-20-cover.jpg";
 import storyPhoto from "@/assets/mai-mai-tuoi-20-photo.jpg";
@@ -18,6 +18,8 @@ import { BookCover } from "@/components/library/BookCover";
 import { BookDialog } from "@/components/library/BookDialog";
 import { DustParticles } from "@/components/library/DustParticles";
 import { FlipBook, type FlipPage } from "@/components/library/FlipBook";
+import { FeaturedBooks } from "@/components/library/FeaturedBooks";
+import { OnlineSearch } from "@/components/library/OnlineSearch";
 import { RingCarousel } from "@/components/library/RingCarousel";
 import { useReveal } from "@/components/library/useReveal";
 import { GENRES, companions, filterBooks, shelfBooks, type Book } from "@/lib/books";
@@ -26,10 +28,10 @@ import { cn } from "@/lib/utils";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Góc Thư Viện 11A5:Mãi mãi tuổi hai mươi & tủ sách thời chiến" },
-      { name: "description", content: "Góc Thư Viện 11A5: đọc thử Mãi mãi tuổi hai mươi, khám phá 23 cuốn sách về tuổi trẻ và chiến tranh với hiệu ứng 3D." },
+      { title: "Góc Thư Viện 11A5 · Sách nổi bật & tìm sách trực tuyến" },
+      { name: "description", content: "Đọc thử Mãi mãi tuổi hai mươi, khám phá 6 sách nổi bật, tủ sách tuổi trẻ thời chiến và tìm sách trực tuyến với Open Library." },
       { property: "og:title", content: "Góc Thư Viện 11A5" },
-      { property: "og:description", content: "Đọc thử Mãi mãi tuổi hai mươi và khám phá tủ sách của lớp 11A5." },
+      { property: "og:description", content: "Đọc thử nhật ký, khám phá sách nổi bật và tìm sách trực tuyến cùng lớp 11A5." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
@@ -92,7 +94,7 @@ function Index() {
   return (
     <div className="min-h-screen overflow-x-hidden">
       {/* ================= HERO ================= */}
-      <section className="relative isolate min-h-[100svh] overflow-hidden bg-night text-night-foreground">
+      <section className="relative isolate hero-library overflow-hidden bg-night text-night-foreground">
         <img src={libraryBg} alt="" width={1920} height={1088} className="absolute inset-0 -z-20 h-full w-full scale-105 object-cover opacity-55" />
         <div className="bg-night-gradient absolute inset-0 -z-10" />
         <div className="pointer-events-none absolute -top-20 right-[20%] -z-10 h-[140%] w-40 animate-rays bg-gold/15 blur-3xl" />
@@ -112,60 +114,7 @@ function Index() {
           </a>
         </header>
 
-        <div className="relative z-10 mx-auto grid max-w-7xl items-center gap-14 px-6 pt-14 pb-24 lg:grid-cols-[1.05fr_1fr] lg:pt-20">
-          <div className="reveal">
-            <p className="eyebrow flex items-center gap-3 text-night-foreground/60">
-              <span className="h-px w-8 bg-gold" /> Tủ sách thời chiến Việt Nam
-            </p>
-            <p className="eyebrow mt-8 text-gold">Cuốn sách mở đầu · 01</p>
-            <h1 className="font-display-tight mt-3 text-[clamp(3.6rem,9vw,7.5rem)] leading-[0.9] font-light">
-              Mãi mãi
-              <br />
-              tuổi <em className="text-gold-shimmer not-italic">hai mươi</em>
-            </h1>
-            <p className="mt-6 font-semibold">Nhật ký thời chiến của Nguyễn Văn Thạc</p>
-            <p className="mt-3 max-w-md leading-relaxed text-night-foreground/70">
-              Viết giữa những ngày hành quân, cuốn nhật ký giữ lại suy nghĩ, nỗi nhớ và ước mơ của một chàng trai Hà Nội trước ngưỡng tuổi hai mươi.
-            </p>
-            <div className="mt-8 flex flex-wrap items-center gap-6 text-sm">
-              <div>
-                <p className="eyebrow !text-[0.58rem] text-night-foreground/50">Tác giả</p>
-                <p className="mt-1 font-medium">Nguyễn Văn Thạc</p>
-              </div>
-              <span className="h-8 w-px bg-night-foreground/20" />
-              <div>
-                <p className="eyebrow !text-[0.58rem] text-night-foreground/50">Biên soạn</p>
-                <p className="mt-1 font-medium">Đặng Vương Hưng</p>
-              </div>
-            </div>
-            <div className="mt-10 flex flex-wrap items-center gap-4">
-              <button onClick={() => setReading(true)} className="group inline-flex items-center gap-3 rounded-sm bg-gold px-6 py-4 text-sm font-semibold text-gold-foreground shadow-[var(--shadow-glow)] transition hover:brightness-110">
-                <BookOpen className="h-4 w-4 transition group-hover:rotate-[-8deg]" /> Đọc thử trang đầu
-              </button>
-              <a href={KIM_DONG} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-sm border border-night-foreground/30 px-6 py-4 text-sm transition hover:border-gold hover:text-gold">
-                Xem sách tại NXB Kim Đồng <ArrowUpRight className="h-4 w-4" />
-              </a>
-            </div>
-          </div>
-
-          <div className="reveal relative flex flex-col items-center [--delay:200ms]">
-            <div className="pointer-events-none absolute top-1/2 left-1/2 h-[420px] w-[420px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-gold/25 blur-[90px]" />
-            <div className="relative animate-float">
-              <Book3D tone="forest" width={280} height={426} depth={42} rest={{ x: 4, y: -28 }} tilt={28} onClick={() => setReading(true)} label="Mở sách Mãi mãi tuổi hai mươi để đọc thử">
-                <img src={coverAsset} alt="Bìa sách Mãi mãi tuổi hai mươi" className="h-full w-full object-cover" draggable={false} />
-              </Book3D>
-              <span className="pointer-events-none absolute -right-3 -bottom-3 flex h-14 w-14 items-center justify-center">
-                <span className="absolute inset-0 animate-pulse-ring rounded-full border-2 border-gold" />
-                <span className="flex h-11 w-11 items-center justify-center rounded-full bg-gold text-gold-foreground">
-                  <BookOpen className="h-5 w-5" />
-                </span>
-              </span>
-            </div>
-            <p className="mt-12 flex items-center gap-2 text-sm text-night-foreground/70">
-              <Sparkles className="h-4 w-4 text-gold" /> Nhấn vào cuốn sách để lật xem những trang đầu
-            </p>
-          </div>
-        </div>
+        <FeaturedBooks onRead={() => setReading(true)} onPick={setPicked} />
 
         <a href="#cau-chuyen" className="absolute bottom-6 left-1/2 z-10 -translate-x-1/2 text-night-foreground/60 transition hover:text-gold" aria-label="Cuộn xuống">
           <ArrowDown className="h-5 w-5 animate-bounce" />
@@ -344,6 +293,8 @@ function Index() {
           )}
         </div>
       </section>
+
+      <OnlineSearch />
 
       {/* ================= FOOTER ================= */}
       <footer className="bg-night text-night-foreground">

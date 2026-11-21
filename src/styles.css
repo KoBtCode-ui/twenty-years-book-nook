@@ -141,7 +141,7 @@
   font-family: var(--font-display);
   font-stretch: 68%;
   font-variation-settings: "wdth" 68;
-  letter-spacing: -0.01em;
+  letter-spacing: 0;
 }
 @utility eyebrow {
   font-family: var(--font-sans);
@@ -323,6 +323,33 @@
 .reveal.is-visible { opacity: 1; transform: none; }
 
 @media (prefers-reduced-motion: reduce) {
-  .animate-float, .animate-marquee, .animate-rays, .text-gold-shimmer { animation: none; }
+  .animate-float, .animate-marquee, .animate-rays, .text-gold-shimmer, .animate-pulse-ring, .animate-bounce, .animate-spin { animation: none; }
   .reveal { opacity: 1; transform: none; }
+}
+
+/* Featured books: separate entrance and idle motion preserve pointer tilt. */
+.hero-library { min-height: 0; }
+.featured-showcase { perspective: 1600px; }
+.featured-showcase > .grid { min-height: 400px; }
+.featured-enter { animation: featured-copy 650ms cubic-bezier(.2,.8,.2,1) both; }
+.featured-book-enter { animation: featured-arrive 950ms cubic-bezier(.16,1,.3,1) both; }
+.featured-float { animation: featured-drift 7s ease-in-out infinite; }
+.featured-thumbnails { scrollbar-width: thin; scrollbar-color: var(--gold) var(--night); scroll-snap-type: x proximity; }
+.featured-thumbnail { scroll-snap-align: start; transition: border-color 250ms, background-color 250ms, transform 250ms; }
+.featured-thumbnail:hover { transform: translateY(-3px); }
+.book3d:focus-visible { outline: 2px solid var(--gold); outline-offset: 12px; }
+.book3d:hover .book3d-gloss { animation: cover-sweep 1800ms ease-out; }
+.online-book-enter { animation: featured-copy 550ms ease-out both; }
+@keyframes featured-copy { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: none; } }
+@keyframes featured-arrive { from { opacity: 0; transform: translateX(50px) rotateY(-22deg) rotateZ(4deg); } to { opacity: 1; transform: none; } }
+@keyframes featured-drift { 0%,100% { transform: translateY(0) rotateZ(-1deg); } 50% { transform: translateY(-12px) rotateZ(1deg); } }
+@keyframes cover-sweep { from { background-position: 100% 0; } to { background-position: 0% 0; } }
+@media (max-width: 1023px) {
+  .featured-showcase > .grid { min-height: 0; }
+  .featured-showcase h1 { min-height: 106px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .featured-enter, .featured-book-enter, .featured-float, .online-book-enter, .book3d:hover .book3d-gloss { animation: none; }
+  .book3d-inner, .flip-book, .flip-leaf, .featured-thumbnail { transition-duration: 0.01ms; }
 }

@@ -32,4 +32,6 @@ use the editor.
 ## Project rules
 - Book catalogue lives in `src/lib/books.ts` (plain data + `filterBooks`); UI components under `src/components/library/` only render it — keeps content edits in one place.
 - 3D effects (book, flip book, ring) are pure CSS 3D + small rAF loops, no 3D/animation libraries — keeps the bundle light and SSR-safe.
+- Featured selection comes from the central catalogue and keeps the diary's uploaded-page preview distinct from other book introductions — prevents showing invented preview pages.
+- Online discovery uses Open Library's public browser API on explicit searches with TanStack Query cancellation and caching; parse external records in `src/lib/book-search.ts` — no private API key or backend is needed for public catalogue searches.
 - Book-page photos and real published book covers are JPG files committed in `src/assets/` (covers in `src/assets/real-covers/`, pages in `src/assets/pages/`, imported as modules; covers set via `Book.cover`) — the user wants book images in the source code, not CDN pointers; generated art in `src/assets/covers/` is the fallback when a book has no real cover.

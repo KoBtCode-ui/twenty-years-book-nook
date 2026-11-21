@@ -32,6 +32,7 @@ import cThoiXaVang from "@/assets/real-covers/thoi-xa-vang.jpg";
 import cTuoiThoDuDoi from "@/assets/real-covers/tuoi-tho-du-doi.jpg";
 import cVoThiSau from "@/assets/real-covers/vo-thi-sau.jpg";
 import cVuADinh from "@/assets/real-covers/vu-a-dinh.jpg";
+import featuredCover from "@/assets/mai-mai-tuoi-20-cover.jpg";
 
 export type Tone = "forest" | "brick" | "ochre" | "ink" | "night" | "sky" | "rose" | "teal";
 
@@ -118,6 +119,11 @@ export const shelfBooks: Book[] = [
 ].map((b) => ({ ...b, link: search(b.title) }) as Book);
 
 export const allBooks: Book[] = [...companions, ...shelfBooks];
+
+export const featuredBooks: Book[] = [
+  { id: "mai-mai-tuoi-hai-muoi", title: "Mãi mãi tuổi hai mươi", author: "Nguyễn Văn Thạc", tag: "Nhật ký thời chiến · 1971—1972", genre: "Nhật ký & hồi ký", blurb: "Viết giữa những ngày hành quân, cuốn nhật ký giữ lại suy nghĩ, nỗi nhớ và ước mơ của một chàng trai Hà Nội trước ngưỡng tuổi hai mươi.", art: diaryLamp, cover: featuredCover, tone: "forest", link: "https://nxbkimdong.com.vn/mai-mai-tuoi-hai-muoi-nhat-ky-thoi-chien-viet-nam" },
+  ...allBooks.filter((book) => ["dang-thuy-tram", "tuoi-tho-du-doi", "noi-buon-chien-tranh", "dat-rung-phuong-nam", "thep-da-toi-the-day"].includes(book.id)),
+];
 
 export function filterBooks(books: Book[], genre: string, query: string): Book[] {
   const q = query.trim().toLowerCase();
