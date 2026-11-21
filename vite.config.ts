@@ -19,7 +19,15 @@ export default defineConfig({
     // Pre-bundle the libraries the home page loads so the dev server never re-optimizes
     // mid-session (that left the preview with two React copies and a blank screen).
     optimizeDeps: {
-      include: ["@radix-ui/react-dialog", "clsx", "lucide-react", "tailwind-merge"],
+      include: [
+        "@radix-ui/react-dialog",
+        "@radix-ui/react-slot",
+        "class-variance-authority",
+        "clsx",
+        "lucide-react",
+        "tailwind-merge",
+        "zod",
+      ],
     },
   },
 });
